@@ -53,8 +53,8 @@ compiled against; use the matching file in `feature-catalogues/` to load or vali
 
 ## Geographic layout
 
-Each case's base+update pair sits on its own 1°×1° tile on a 10×10 geographic grid, rather than
-all stacked at the same coordinates. A given case ID sits on the same tile under both FC
+Each case's base+update pair sits on its own 0.22°×0.22° tile on a 10×10 geographic grid, rather
+than all stacked at the same coordinates. A given case ID sits on the same tile under both FC
 editions. The shared `base/UPDBASE.000` is not part of the grid and stays at its own location
 (-30°, 170°). Loading the whole set into a viewer should show one populated tile per case —
 a missing or empty tile marks a case that failed to load.
