@@ -44,12 +44,20 @@ compiled against; use the matching file in `feature-catalogues/` to load or vali
 - A base cell and its update share the identical dataset name — only the extension differs
   (`.000` for the base, `.001` for the update). This is how an update is tied to its base in a
   real ENC exchange.
-- Every case's base cell carries the same content as `upd/<version>/base/UPDBASE.000`; it's
-  duplicated per case (under its own dataset name) so each case's update can be applied to a base
-  cell on its own, independent of every other case.
+- Every case's base cell carries the same content as `upd/<version>/base/UPDBASE.000`, shifted to
+  its own location on the grid below; it's duplicated per case (under its own dataset name) so
+  each case's update can be applied to a base cell on its own, independent of every other case.
 - `DS-CANCEL`, `DS-NOOP` and `DS-REISSUE` are classes with no file content to carry (a dataset
   cancellation, a no-op update, and a re-issue respectively) — see
   `docs/update-permutation-catalogue.md` for what they represent.
+
+## Geographic layout
+
+Each case's base+update pair sits on its own 1°×1° tile on a 10×10 geographic grid, rather than
+all stacked at the same coordinates. A given case ID sits on the same tile under both FC
+editions. The shared `base/UPDBASE.000` is not part of the grid and stays at its own location
+(-30°, 170°). Loading the whole set into a viewer should show one populated tile per case —
+a missing or empty tile marks a case that failed to load.
 
 ## Loading
 
